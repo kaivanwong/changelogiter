@@ -15,13 +15,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
+      - name: Set pnpm
         uses: pnpm/action-setup@v2
 
       - name: Set node
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
