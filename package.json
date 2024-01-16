@@ -5,7 +5,7 @@
   "packageManager": "pnpm@8.14.1",
   "description": "Generate changelog in anywhere, it's look like changelogithub.",
   "author": "Kaivan Wong <kaivanwong@outlook.com>",
-  "license": "MIT",
+  "license": "MIT License",
   "funding": "https://github.com/sponsors/kaivanwong",
   "homepage": "https://github.com/kaivanwong/changelogiter#readme",
   "repository": {
@@ -53,7 +53,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "release": "bumpp --commit --push --tag",
+    "release": "bumpp",
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
