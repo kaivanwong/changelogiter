@@ -1,8 +1,5 @@
 name: Release
 
-permissions:
-  contents: write
-
 on:
   push:
     tags:
@@ -13,24 +10,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
       - name: Set node
         uses: actions/setup-node@v3
         with:
-          registry-url: https://registry.npmjs.org/
-          node-version: 16.x
+          node-version: lts/*
 
-      - name: Setup
-        run: npm i -g @antfu/ni
+      - name: Install Dependencies.
+        run: pnpm install
 
-      - name: Install
-        run: nci
-
-      - run: npm start
+      - name: Generate changelog
+        run: pnpm start
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - run: npm publish
+      - name: Publish to NPM
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

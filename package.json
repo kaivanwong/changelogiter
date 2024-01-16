@@ -44,14 +44,17 @@
     "node": ">=12.0.0"
   },
   "scripts": {
-    "build": "unbuild",
-    "dev": "unbuild --stub",
-    "test": "vitest",
-    "lint": "eslint .",
-    "prepublishOnly": "nr build",
-    "release": "bumpp --commit --push --tag",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "simple-git-hooks",
     "start": "nr dev && node cli.mjs",
-    "typecheck": "tsc --noEmit"
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "release": "bumpp --commit --push --tag",
+    "prepublishOnly": "nr build"
   },
   "dependencies": {
     "@antfu/utils": "^0.7.7",
@@ -73,8 +76,17 @@
     "eslint": "^8.56.0",
     "esno": "^4.0.0",
     "fs-extra": "^11.2.0",
+    "lint-staged": "^15.2.0",
+    "simple-git-hooks": "^2.9.0",
     "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
     "vitest": "^1.2.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "pnpm lint:fix"
   }
+
 }
