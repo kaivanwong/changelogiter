@@ -46,7 +46,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "simple-git-hooks",
-    "start": "nr dev && node cli.mjs",
+    "start": "pnpm dev && node cli.mjs",
     "dev": "unbuild --stub",
     "build": "unbuild",
     "test": "vitest",
@@ -54,7 +54,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "bumpp --commit --push --tag",
-    "prepublishOnly": "nr build"
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "@antfu/utils": "^0.7.7",
