@@ -1,0 +1,80 @@
+{
+  "name": "changelogiter",
+  "type": "module",
+  "version": "0.13.4",
+  "packageManager": "pnpm@8.14.1",
+  "description": "Generate changelog in anywhere, it's look like changelogithub.",
+  "author": "Kaivan Wong <kaivanwong@outlook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/kaivanwong",
+  "homepage": "https://github.com/kaivanwong/changelogiter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaivanwong/changelogiter.git"
+  },
+  "bugs": "https://github.com/kaivanwong/changelogiter/issues",
+  "keywords": [
+    "github",
+    "gitlab",
+    "gitee",
+    "release",
+    "releases",
+    "conventional",
+    "changelog",
+    "log",
+    "changelogithub"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "bin": "./cli.mjs",
+  "files": [
+    "*.mjs",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "test": "vitest",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp --commit --push --tag",
+    "start": "nr dev && node cli.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@antfu/utils": "^0.7.7",
+    "c12": "^1.6.1",
+    "cac": "^6.7.14",
+    "changelogen": "0.5.5",
+    "convert-gitmoji": "0.1.3",
+    "execa": "^8.0.1",
+    "kolorist": "^1.8.0",
+    "ofetch": "^1.3.3"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.6.2",
+    "@types/debug": "^4.1.12",
+    "@types/fs-extra": "^11.0.4",
+    "@types/minimist": "^1.2.5",
+    "@types/semver": "^7.5.6",
+    "bumpp": "^9.2.1",
+    "eslint": "^8.56.0",
+    "esno": "^4.0.0",
+    "fs-extra": "^11.2.0",
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0",
+    "vitest": "^1.2.0"
+  }
+}
