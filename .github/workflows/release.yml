@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Install Dependencies.
+      - name: Install dependencies
         run: pnpm install
 
       - name: Generate changelog
