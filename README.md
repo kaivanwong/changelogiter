@@ -27,9 +27,7 @@ npx changelogiter
 
 `changelogiter` provides a variety of ways, you can choose the way you need:
 
-<details>
-<summary>Github Actions</summary>
-<br>
+### Github Actions
 
 ```yml
 # .github/workflows/release.yml
@@ -54,39 +52,19 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: lts/*
 
-      - run: npx changelogiter # or changelogiter@x.x.x if ensure the stable result
+      - run: npx changelogiter
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
 
-<br>
-</details>
-
-<details>
-<summary>Gitlab Runners</summary>
-<br>
+### Gitlab Runners
 
 ```
 ```
 
-<br>
-</details>
-
-<details>
-<summary>Gitee Actions</summary>
-<br>
-
-```
-```
-
-<br>
-</details>
-
-<details>
-<summary>Only Output</summary>
-<br>
+### Only Output
 
 ```
 ```
